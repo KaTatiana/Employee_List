@@ -1,4 +1,7 @@
 package proskyEmployeeList;
+
+import org.apache.commons.lang3.StringUtils;
+
 public class Employee {
     private final String name;
     private final String patronymic;
@@ -7,9 +10,9 @@ public class Employee {
     private double salary;
 
     public Employee(String name, String patronymic, String surname) {
-        this.name = name;
-        this.patronymic=patronymic;
-        this.surname = surname;
+        this.name = StringUtils.capitalize(name.toLowerCase());
+        this.patronymic=StringUtils.capitalize(patronymic.toLowerCase());
+        this.surname = StringUtils.capitalize(surname.toLowerCase());
         this.department = 0;
         this.salary = 0;
     }

@@ -30,8 +30,4 @@ public class EmployeeController {
         return employeeService.searchEmployee(name, patronymic, surname);
     }
 
-//    @GetMapping("/departments/all")
-//    public void employeesFullPrint(){
-//        employeeService.employeesFullPrint();
-//    }
 }
