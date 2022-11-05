@@ -55,7 +55,8 @@ public class DepartmentServiceTest {
     public static Stream<Arguments>employeesMaxSalaryParams(){
         return Stream.of(
                 Arguments.of(3, new Employee("Петр","Иванович","Петров",3,45000)),
-                Arguments.of(2, new Employee("Петр","Иванович","Семенов",2,60000))
+                Arguments.of(2, new Employee("Петр","Иванович","Семенов",2,60000)),
+                Arguments.of(2, new Employee("Петр","Иванович","Смирнов", 1, 34000))
         );
     }
     public static Stream<Arguments>employeesMinSalaryParams(){

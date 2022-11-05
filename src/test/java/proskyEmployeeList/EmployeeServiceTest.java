@@ -40,22 +40,13 @@ public class EmployeeServiceTest {
     
     public static Stream<Arguments> params() {
         return Stream.of(
-                Arguments.of("Иван","Иванович","Иванов")
-//                Arguments.of("Петров","Петр","Петрович"),
-//                Arguments.of("Сергеев","Сергей","Сергеевич")
-//                Arguments.of("Иван","Иванович","Иванов"),
-//                Arguments.of("Петров","Петр","Петрович"),
-//                Arguments.of("Сергеев","Сергей","Сергеевич")
+                Arguments.of("Иван","Иванович","Иванов"),
+                Arguments.of("Сергеев","Сергей","Сергеевич")
         );
     }
     public static Stream<Arguments> paramsadd() {
         return Stream.of(
-//                Arguments.of("Ivan","Ihchdvk","Hchjdvjh",2,50000)
                 Arguments.of("Иван","Иванович","Иванов",1,52000.0)
-//                Arguments.of("Сергеев","Сергей","Сергеевич")
-//                Arguments.of("Иван","Иванович","Иванов"),
-//                Arguments.of("Петров","Петр","Петрович"),
-//                Arguments.of("Сергеев","Сергей","Сергеевич")
         );
     }
 }
