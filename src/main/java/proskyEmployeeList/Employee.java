@@ -17,12 +17,35 @@ public class Employee {
         this.salary = 0;
     }
 
+    public Employee(String name, String patronymic, String surname, int department, double salary) {
+        this.name = StringUtils.capitalize(name.toLowerCase());
+        this.patronymic=StringUtils.capitalize(patronymic.toLowerCase());
+        this.surname = StringUtils.capitalize(surname.toLowerCase());
+        this.department = department;
+        this.salary = salary;
+    }
+
     public Employee() {
         this.name = "";
         this.patronymic = "";
         this.surname = "";
         this.department = 0;
         this.salary = 0;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Employee employee = (Employee) obj;
+        return  name.equals(employee.getName()) &&
+                surname.equals(employee.getSurname()) &&
+                patronymic.equals(employee.getPatronymic());
     }
 
     public String getName() { return name; }

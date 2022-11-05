@@ -1,8 +1,10 @@
-package proskyEmployeeList;
+package proskyEmployeeList.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import proskyEmployeeList.Employee;
+import proskyEmployeeList.Service.EmployeeService;
 
 @RestController
 public class EmployeeController {

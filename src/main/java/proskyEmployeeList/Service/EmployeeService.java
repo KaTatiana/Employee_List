@@ -1,12 +1,11 @@
-package proskyEmployeeList;
+package proskyEmployeeList.Service;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+import proskyEmployeeList.Employee;
+import proskyEmployeeList.Exception.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class EmployeeService {
@@ -14,7 +13,7 @@ public class EmployeeService {
 
     private final Map<String, Employee> employees=new HashMap<>();
 
-        EmployeeService()
+        public EmployeeService()
         {
             String [] data = {
                     "Иван,Иванович,Иванов,1,52000",
@@ -46,9 +45,10 @@ public class EmployeeService {
             employee.setDepartment(department);
             employee.setSalary(salary);
             String key=employeeKey(employee);
+            //System.out.println("Сотрудник "+key+ " уже существует!");
+            //return false;
             if (employees.containsKey(key)) {
-                System.out.println("Сотрудник "+key+ " уже существует!");
-                return false;
+                throw new EmployeeAlreadyAddedException("Сотрудник уже существует!");
             }
             employees.put(key, employee);
             System.out.println("Сотрудник "+key+" добавлен");
@@ -58,22 +58,21 @@ public class EmployeeService {
             checkEmployeeInput(name,  patronymic,  surname);
             Employee employee=new Employee(name, patronymic, surname);
             String key=employeeKey(employee);
-            return  employees.get(key); //ищет значение по его ключу;
+            return employees.get(key); //ищет значение по его ключу;
         }
         public boolean employeeRemove(String name, String patronymic, String surname) {
             checkEmployeeInput(name,  patronymic,  surname);
             Employee employee=new Employee(name, patronymic, surname);
             String key=employeeKey(employee);
             if (!employees.containsKey(key)) {
-                System.out.println("Сотрудник "+key+ " не существует!");
-                return false;
+                throw new EmployeeStorageIsFullException("Сотрудник "+key+ " не существует!");
             }
             employees.remove(key); //удаляет значение по его ключу;
             System.out.println("Сотрудник "+name+" "+patronymic+" "+ surname+" успешно удален");
             return true;
         }
 
-    public ArrayList<Employee> getAll() {
+    public List<Employee> getAll() {
         return new ArrayList<>(employees.values());
     }
 

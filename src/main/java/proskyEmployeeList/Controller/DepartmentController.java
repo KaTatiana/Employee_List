@@ -1,8 +1,10 @@
-package proskyEmployeeList;
+package proskyEmployeeList.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import proskyEmployeeList.Service.DepartmentService;
+import proskyEmployeeList.Employee;
 
 import java.util.List;
 import java.util.Map;
